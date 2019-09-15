@@ -8,7 +8,7 @@ This example contains a simple illustration of the concept using [Min.io](https:
 
 ## run tests
 
-`> sbt dockercomposeTest`
+`> sbt dockerComposeTest`
 
 ## caveat
 

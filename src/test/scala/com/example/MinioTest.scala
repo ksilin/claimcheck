@@ -69,7 +69,7 @@ class MinioTest extends FreeSpec
     byteArray.sameElements(data) mustBe true
   }
 
-  def createTestData(fileName: String, content: String = scala.util.Random.alphanumeric.take(12).mkString): Array[Byte] = {
+  private def createTestData(fileName: String, content: String = scala.util.Random.alphanumeric.take(12).mkString): Array[Byte] = {
     val file: File = root / "tmp" / fileName
     file.overwrite(content)
     file.byteArray

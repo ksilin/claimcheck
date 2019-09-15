@@ -53,12 +53,7 @@ class ClaimCheckTest extends FreeSpec
   val topicName         = "claimCheckTopic1"
   val loggedStep        = 100
 
-  val byteSerdes   = Serdes.ByteArray()
-  val intSerdes    = Serdes.Integer()
   val stringSerdes = Serdes.String()
-
-  val pollDuration = java.time.Duration.ofMillis(100)
-
   val producer = makeProducer
   val consumer = makeConsumer
 
@@ -78,6 +73,7 @@ class ClaimCheckTest extends FreeSpec
 
     var consumed: ConsumerRecords[String, String] = null
     var initialPollAttempts        = 0
+    val pollDuration = java.time.Duration.ofMillis(100)
     // subscription is not immediate
     while (consumed == null || consumed.isEmpty) {
       consumed = consumer.poll(pollDuration)
@@ -95,7 +91,7 @@ class ClaimCheckTest extends FreeSpec
     enrichedMessages.map(_.payload) forall (bA => msgs.map(_.payload).exists(bO => bA.sameElements(bO)))
   }
 
-  def mkDataMessages(count: Int = 8): Iterable[DataMessage] = {
+  private def mkDataMessages(count: Int = 8): Iterable[DataMessage] = {
     (0 until count ) map ( i => DataMessage(i.toString,  Random.alphanumeric.take(12).mkString, Random.nextBytes(16)))
   }
 
@@ -107,7 +103,7 @@ class ClaimCheckTest extends FreeSpec
       stringSerdes.serializer())
   }
 
-  private def makeConsumer =  {
+  private def makeConsumer = {
     val consumerGroup = "claimCheckGroup"
     val consumerJavaProps = new java.util.Properties
     consumerJavaProps.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaHost)

@@ -1,11 +1,5 @@
 package com.example
 
-import com.amazonaws.ClientConfiguration
-import com.amazonaws.auth.{AWSStaticCredentialsProvider, BasicAWSCredentials}
-import com.amazonaws.client.builder.AwsClientBuilder
-import com.amazonaws.regions.Regions
-import com.amazonaws.services.s3.model.Bucket
-import com.amazonaws.services.s3.{AmazonS3, AmazonS3ClientBuilder}
 import io.minio.MinioClient
 
 object MinioSupport {
