@@ -8,7 +8,7 @@ services:
     environment:
       ZOOKEEPER_SERVER_ID: 1
       ZOOKEEPER_CLIENT_PORT: 2181
-      ZOOKEEPER_TICK_TIME: "2000"
+      ZOOKEEPER_TICK_TIME: 2000
       ZOOKEEPER_SERVERS: zookeeper1:2888:3888
       KAFKA_JMX_PORT: 9999
       KAFKA_JMX_HOSTNAME: localhost
@@ -43,7 +43,7 @@ services:
     volumes:
       - minio1-data:/export
     ports:
-      - "9001:9000"
+      - 9001:9000
     environment:
       MINIO_ACCESS_KEY: AKIAIOSFODNN7EXAMPLE
       MINIO_SECRET_KEY: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY

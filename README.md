@@ -1,10 +1,10 @@
 # Kafka claim check pattern example
 
-Sending large messages through Kafka is not recommended. It is often beneficial to offload the message payload and transport the refence through Kafka.
+Sending large amounts of large messages directly through Kafka is not recommended. It is better to offload the message payload and transport the reference to this payload through Kafka.
 
-This is known as the [claim check pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/StoreInLibrary.html)
+This is known as the [claim check pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/StoreInLibrary.html).
 
-This example contains a simple illustration of the concept using [Min.io](https://min.io/), an S3-compatible object store.
+This example contains a simple implementation of the concept using [Min.io](https://min.io/), an S3-compatible object store.
 
 ## run tests
 
